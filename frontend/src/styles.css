@@ -1,0 +1,92 @@
+/* styles.css - simple Figma-like register/login styles */
+
+* { box-sizing: border-box; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+.page {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #f6f8fb;
+  padding: 40px;
+}
+
+.card {
+  width: 1100px;
+  display: flex;
+  gap: 40px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(18, 39, 63, 0.08);
+  overflow: hidden;
+}
+
+/* left image area */
+.card .left {
+  width: 50%;
+  min-height: 560px;
+  background: linear-gradient(180deg, #f3dfff 0%, #b49eff 50%, #6b3bff 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: rgba(255,255,255,0.7);
+  font-weight: 700;
+  font-size: 28px;
+}
+
+/* right form area */
+.card .right {
+  width: 50%;
+  padding: 48px;
+}
+
+.card h1 {
+  margin: 0 0 18px 0;
+  font-size: 28px;
+  color: #08112a;
+}
+
+.form-row { margin-bottom: 14px; }
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #f0f2f6;
+  background: #fbfdff;
+  outline: none;
+  font-size: 14px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.small-row { display:flex; gap:12px; }
+.small-row .input { flex:1; }
+
+.label { font-size: 12px; color: #7b8899; margin-bottom: 6px; display:block; }
+
+.gender-group { display:flex; gap:10px; margin-top:8px; margin-bottom:8px; }
+.gender-btn {
+  padding: 8px 18px;
+  border-radius: 22px;
+  border: 1px solid #e7eaf0;
+  background: white;
+  cursor: pointer;
+  color: #223;
+}
+.gender-btn.active { background: linear-gradient(90deg,#6b9cff,#6b3bff); color: white; border: none; box-shadow: 0 6px 18px rgba(107,59,255,0.18); }
+
+.primary-btn {
+  display:inline-block;
+  margin-top: 12px;
+  width: 100%;
+  padding: 14px 18px;
+  background: linear-gradient(90deg,#5ea0ff,#6b3bff);
+  border:none;
+  color:white;
+  font-weight:600;
+  font-size:16px;
+  border-radius: 26px;
+  cursor:pointer;
+  box-shadow: 0 8px 20px rgba(107,59,255,0.12);
+}
+
+.footer-note { text-align:center; margin-top:16px; color:#7b8899; font-size:14px; }
+.error { color: #b00020; margin-top:12px; font-size:14px; }
