@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { register } from '../api/auth'; // uses the API wrapper shown earlier
 import { useNavigate } from 'react-router-dom';
+import { saveToken } from '../utils/auth';
+import { setAuthToken } from '../api/auth';
 import '../styles.css';
 
 export default function Register(){
@@ -41,8 +43,22 @@ export default function Register(){
       // you may want to remove confirm_password before sending
       const payload = { full_name: form.full_name, email: form.email, password: form.password, mobile_no: form.mobile_no, gender: form.gender };
       const res = await register(payload);
-      console.log(res.data);
-      nav('/login');
+      
+      // If registration returns token, save it and navigate to companies
+      const token = res.data.data?.token || res.data.token;
+      const user = res.data.data?.user || res.data.user;
+      
+      if(token) {
+        saveToken(token);
+        setAuthToken(token);
+        if(user) {
+          localStorage.setItem('user', JSON.stringify(user));
+        }
+        nav('/companies');
+      } else {
+        // Otherwise go to login
+        nav('/login');
+      }
     }catch(err){
       setError(err?.response?.data?.message || err.message);
     }finally{
